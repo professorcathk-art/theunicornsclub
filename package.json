@@ -1,0 +1,32 @@
+{
+  "name": "theunicornsclub",
+  "version": "1.0.0",
+  "description": "The Unicorns Club - Wonderful Future connecting innovation & investment",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npx http-server public -p 3000 -o",
+    "dev": "npx live-server public --port=3000 --open=/",
+    "build": "node build.js",
+    "deploy": "echo 'Deployment ready - configure your hosting platform'"
+  },
+  "keywords": [
+    "unicorns",
+    "wonderful-future",
+    "innovation",
+    "investment",
+    "chinese-market",
+    "web",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "The Unicorns Club",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
