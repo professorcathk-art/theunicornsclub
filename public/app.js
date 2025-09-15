@@ -218,7 +218,7 @@ function initializeMainContactForm() {
     });
 }
 
-function handleMainFormSubmission() {
+async function handleMainFormSubmission() {
     const form = document.getElementById('mainContactForm');
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton.querySelector('.btn-text');
@@ -249,25 +249,45 @@ function handleMainFormSubmission() {
     }
     submitButton.disabled = true;
 
-    // Simulate form submission
-    setTimeout(function() {
-        showMainNotification('Thank you for joining our network! We\'ll be in touch soon.', 'success');
-        
-        // Reset form
-        form.reset();
-        
+    try {
+        // Submit to API
+        const response = await fetch('/api/submit-main-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                role,
+                company
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            showMainNotification('Thank you for joining our network! We\'ll be in touch soon.', 'success');
+            form.reset();
+            
+            // Add celebration effect
+            setTimeout(() => {
+                showTransitionEffect('🎉');
+            }, 500);
+        } else {
+            showMainNotification(result.message || 'Failed to submit form. Please try again.', 'error');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showMainNotification('Network error. Please check your connection and try again.', 'error');
+    } finally {
         // Reset button state
         if (buttonText && buttonLoading) {
             buttonText.classList.remove('hidden');
             buttonLoading.classList.add('hidden');
         }
         submitButton.disabled = false;
-        
-        // Add celebration effect
-        setTimeout(() => {
-            showTransitionEffect('🎉');
-        }, 500);
-    }, 2000);
+    }
 }
 
 function validateMainFormField(field) {
@@ -565,7 +585,7 @@ function scrollToRegistration() {
     }
 }
 
-function handleChineseFormSubmission() {
+async function handleChineseFormSubmission() {
     const form = document.getElementById('registrationForm');
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton.querySelector('.btn-text');
@@ -604,18 +624,37 @@ function handleChineseFormSubmission() {
     submitButton.disabled = true;
     submitButton.style.opacity = '0.7';
 
-    // Store form data temporarily (simulate backend)
-    const userData = {
-        name: name,
-        email: email,
-        phone: phone,
-        timestamp: new Date().toISOString()
-    };
+    try {
+        // Submit to API
+        const response = await fetch('/api/submit-chinese-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                phone
+            })
+        });
 
-    // Show success message with delay to simulate processing
-    setTimeout(function() {
-        showChineseNotification('註冊成功！正在跳轉...', 'success');
-        
+        const result = await response.json();
+
+        if (response.ok) {
+            showChineseNotification('註冊成功！正在跳轉...', 'success');
+            
+            // Navigate with celebration
+            setTimeout(() => {
+                showCelebration();
+                navigateToThankYouPage();
+            }, 1000);
+        } else {
+            showChineseNotification(result.message || '註冊失敗，請重試', 'error');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showChineseNotification('網絡錯誤，請檢查連接後重試', 'error');
+    } finally {
         // Reset button state
         if (buttonText && buttonLoading) {
             buttonText.classList.remove('hidden');
@@ -623,13 +662,7 @@ function handleChineseFormSubmission() {
         }
         submitButton.disabled = false;
         submitButton.style.opacity = '1';
-        
-        // Navigate with celebration
-        setTimeout(() => {
-            showCelebration();
-            navigateToThankYouPage();
-        }, 1000);
-    }, 2000);
+    }
 }
 
 function navigateToThankYouPage() {
