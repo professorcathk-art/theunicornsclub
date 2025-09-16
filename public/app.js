@@ -628,15 +628,14 @@ async function handleChineseFormSubmission() {
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton.querySelector('.btn-text');
     const buttonLoading = submitButton.querySelector('.btn-loading');
-    const formData = new FormData(form);
     
-    // Get form values
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const identity = formData.get('identity');
-    const businessModel = formData.get('businessModel');
-    const businessDeck = formData.get('businessDeck');
+    // Get form values directly from form elements
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const phone = form.querySelector('#phone').value.trim();
+    const identity = form.querySelector('#identity').value.trim();
+    const businessModel = form.querySelector('#businessModel').value.trim();
+    const businessDeck = form.querySelector('#businessDeck').files[0];
 
     // Basic validation
     if (!name || !email || !phone || !identity) {
