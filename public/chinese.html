@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>獨角獸研究所 - Wonderful Future</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Chinese Site Only -->
+    <div id="chineseSite" class="site-container">
+        <!-- Navigation -->
+        <nav class="main-nav" id="chineseNav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <h1>獨角獸研究所</h1>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#ecosystem" class="nav-link">生態系統</a>
+                        <a href="#services" class="nav-link">服務</a>
+                        <a href="#contact" class="nav-link">聯絡我們</a>
+                        <a href="/" class="btn btn--secondary">English Site</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title fade-in-up">獨角獸研究所</h1>
+                    <h2 class="hero-subtitle fade-in-up delay-1">連接創新與投資</h2>
+                    <p class="hero-description fade-in-up delay-2">為有遠見的企業家和戰略資本搭建橋樑</p>
+                    <div class="hero-buttons fade-in-up delay-3">
+                        <a href="#registration" class="btn btn--primary btn--large pulse-button">立即免費加入</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section class="registration" id="registration">
+            <div class="container">
+                <div class="registration-content">
+                    <h2 class="section-title fade-in-up">立即免費加入會員</h2>
+                    <p class="registration-subtitle fade-in-up delay-1">開始您的商業成長之旅</p>
+                    
+                    <form id="registrationForm" class="registration-form slide-in-up delay-2">
+                        <div class="form-group">
+                            <label for="name" class="form-label">姓名 *</label>
+                            <input type="text" id="name" name="name" class="form-control focus-animation" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">電子郵件 *</label>
+                            <input type="email" id="email" name="email" class="form-control focus-animation" required>                                                                                                                        
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">電話號碼 *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control focus-animation" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--large btn--full-width pulse-button loading-button">                                                                                                                
+                            <span class="btn-text">免費加入獨角獸研究所</span>
+                            <span class="btn-loading hidden">
+                                <span class="spinner"></span>
+                                處理中...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Page -->
+        <div id="thankYouPage" class="page hidden">
+            <!-- Celebration Animation -->
+            <div id="celebration" class="celebration hidden">
+                <div class="confetti"></div>
+            </div>
+
+            <!-- Header -->
+            <header class="header fade-in-down">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="logo pulse-animation">
+                            <h1>獨角獸研究所</h1>
+                        </div>
+                        <div class="header-actions">
+                            <a href="/" class="btn btn--secondary">返回主頁</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Thank You Content -->
+            <main class="thank-you-content">
+                <div class="container">
+                    <div class="success-message fade-in-up">
+                        <div class="success-icon pulse-animation">🎉</div>
+                        <h1 class="success-title">歡迎加入獨角獸研究所！</h1>
+                        <p class="success-description">您已成功註冊，我們將盡快與您聯繫</p>
+                    </div>
+
+                    <!-- Upsell Section -->
+                    <section class="upsell-section fade-in-up delay-1">
+                        <div class="container">
+                            <h2 class="section-title fade-in-up">升級您的學習體驗</h2>
+                            <div class="upsell-grid">
+                                <div class="upsell-card scale-in-animation" data-delay="0">
+                                    <div class="upsell-header">
+                                        <h3>Skool月度訂閱</h3>
+                                        <div class="price">$29 美元/月</div>
+                                    </div>
+                                    <div class="upsell-content">
+                                        <p>完整版人生藍圖課程，Lean startup 課程</p>
+                                        <ul class="upsell-features">
+                                            <li>專業線上課程 (完整版人生藍圖課程，Lean startup 課程）</li>
+                                            <li>免費參與線下聚會活動</li>
+                                            <li>會員專屬資源 (獨家線上銷售秘笈，AI 打造一人公司攻略等)</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn--primary btn--full-width pulse-button">立即訂閱</button>
+                                </div>
+
+                                <div class="upsell-card scale-in-animation" data-delay="200">
+                                    <div class="upsell-header">
+                                        <h3>年度會員計劃</h3>
+                                        <div class="price">$488 美元/年</div>
+                                    </div>
+                                    <div class="upsell-content">
+                                        <p>包含月度訂閱所有內容 + 0到1項目孵化（含4次一對一輔導）</p>
+                                        <ul class="upsell-features">
+                                            <li>所有月度訂閱內容</li>
+                                            <li>0到1項目孵化支援</li>
+                                            <li>4次一對一專業輔導</li>
+                                            <li>優先項目投資機會</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn--primary btn--full-width pulse-button">選擇年度計劃</button>
+                                </div>
+
+                                <div class="upsell-card scale-in-animation" data-delay="400">
+                                    <div class="upsell-header">
+                                        <h3>職業教練服務</h3>
+                                        <div class="price">$199 美元/次</div>
+                                    </div>
+                                    <div class="upsell-content">
+                                        <p>一對一專業職業規劃與商業策略諮詢</p>
+                                        <ul class="upsell-features">
+                                            <li>個人職業規劃</li>
+                                            <li>商業策略諮詢</li>
+                                            <li>投資機會評估</li>
+                                            <li>專業網絡連接</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn--primary btn--full-width pulse-button">預約諮詢</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- WhatsApp Community -->
+                    <section class="whatsapp">
+                        <div class="container">
+                            <div class="whatsapp-content">
+                                <div class="whatsapp-icon pulse-animation">📱</div>
+                                <h2 class="fade-in-up">加入我們的WhatsApp社群</h2>
+                                <p class="fade-in-up delay-1">獲取最新活動通知和獨家資源</p>
+                                <button id="whatsappBtn" class="btn btn--secondary btn--large pulse-button fade-in-up delay-2">                                                                                                                       
+                                    加入WhatsApp社群
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <!-- WhatsApp Modal -->
+        <div id="whatsappModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>加入WhatsApp社群</h3>
+                    <button class="modal-close" id="whatsappModalClose">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="whatsapp-qr pulse-animation">📱</div>
+                    <p>點擊下方按鈕加入我們的WhatsApp社群，獲取最新活動通知！</p>
+                    <div class="modal-buttons">
+                        <a href="https://chat.whatsapp.com/KxFSvm5UEMX7rFcbDj7lGu" target="_blank" class="btn btn--primary btn--full-width pulse-button">                                                                                                                
+                            立即加入WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Auto-show Chinese page when accessing /chinese
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide main site and show Chinese site
+            const mainSite = document.getElementById('mainSite');
+            const chineseSite = document.getElementById('chineseSite');
+            
+            if (mainSite) mainSite.style.display = 'none';
+            if (chineseSite) chineseSite.style.display = 'block';
+            
+            // Initialize Chinese site functionality
+            initializeChineseSite();
+        });
+    </script>
+</body>
+</html>

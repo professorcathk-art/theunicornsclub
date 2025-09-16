@@ -1,4 +1,14 @@
 {
   "version": 2,
-  "outputDirectory": "public"
+  "outputDirectory": "public",
+  "routes": [
+    {
+      "src": "/chinese",
+      "dest": "/chinese.html"
+    },
+    {
+      "src": "/zh",
+      "dest": "/chinese.html"
+    }
+  ]
 }
