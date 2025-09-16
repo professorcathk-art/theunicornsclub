@@ -75,9 +75,6 @@ module.exports = async function handler(req, res) {
       name,
       email,
       phone,
-      identity,
-      businessModel,
-      businessDeckFilename,
       created_at: result.rows[0].created_at
     });
 
