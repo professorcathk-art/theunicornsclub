@@ -248,7 +248,17 @@ function initializeMainContactForm() {
 
 async function handleMainFormSubmission() {
     const form = document.getElementById('mainContactForm');
+    if (!form) {
+        console.error('Main contact form not found');
+        return;
+    }
+    
     const submitButton = form.querySelector('button[type="submit"]');
+    if (!submitButton) {
+        console.error('Submit button not found');
+        return;
+    }
+    
     const buttonText = submitButton.querySelector('.btn-text');
     const buttonLoading = submitButton.querySelector('.btn-loading');
     const formData = new FormData(form);
