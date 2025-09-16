@@ -926,7 +926,7 @@ function initializeUpsellButtons() {
                 url = 'https://skool.com/second-life-lab-6495';
             } else if (buttonText.includes('預約諮詢')) {
                 message = '正在跳轉到職業教練服務預約...';
-                url = 'mailto:contact@unicorn-institute.com?subject=職業教練服務諮詢';
+                url = 'mailto:chris.lau@professor-cat.com?subject=職業教練服務諮詢';
             }
             
             if (message) {
