@@ -666,10 +666,22 @@ async function handleChineseFormSubmission() {
     submitButton.style.opacity = '0.7';
 
     try {
+        // Prepare JSON data (skip file upload for now)
+        const jsonData = {
+            name: name,
+            email: email,
+            phone: phone,
+            identity: identity,
+            businessModel: businessModel || null
+        };
+        
         // Submit to API
         const response = await fetch('/api/submit-chinese-form', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
         });
 
         const result = await response.json();

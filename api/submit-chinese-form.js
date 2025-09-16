@@ -26,7 +26,7 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    // Handle FormData (multipart/form-data)
+    // Handle JSON data
     const { name, email, phone, identity, businessModel, businessDeck } = req.body;
 
     // Validate required fields
