@@ -355,6 +355,55 @@
             
             // Initialize Chinese site functionality
             initializeChineseSite();
+            
+            // Mobile-specific fix for Skool buttons
+            setTimeout(function() {
+                const upsellButtons = document.querySelectorAll('.upsell-card button');
+                upsellButtons.forEach(function(button) {
+                    // Remove existing event listeners and add new ones
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const buttonText = button.textContent;
+                        let message = '';
+                        let url = '';
+                        
+                        if (buttonText.includes('立即訂閱')) {
+                            message = '正在跳轉到Skool月度訂閱頁面...';
+                            url = 'https://skool.com/second-life-lab-6495';
+                        } else if (buttonText.includes('年度計劃')) {
+                            message = '正在跳轉到年度會員計劃...';
+                            url = 'https://skool.com/second-life-lab-6495';
+                        } else if (buttonText.includes('預約諮詢')) {
+                            message = '正在跳轉到職業教練服務預約...';
+                            url = 'mailto:chris.lau@professor-cat.com?subject=職業教練服務諮詢';
+                        }
+                        
+                        if (message && url) {
+                            // Show notification
+                            if (typeof showChineseNotification === 'function') {
+                                showChineseNotification(message, 'info');
+                            }
+                            
+                            // Navigate after delay
+                            setTimeout(function() {
+                                if (url.startsWith('mailto:')) {
+                                    window.location.href = url;
+                                } else {
+                                    window.open(url, '_blank');
+                                }
+                            }, 1000);
+                        }
+                    });
+                    
+                    // Also add touch event for mobile
+                    button.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        button.click();
+                    });
+                });
+            }, 500);
         });
     </script>
 </body>
