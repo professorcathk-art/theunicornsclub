@@ -188,7 +188,24 @@
                                 <option value="advisor">Advisor/Mentor</option>
                                 <option value="other">Other</option>
                             </select>
-                        </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="businessModel" class="form-label">一句話描述您的商業模式</label>
+                                <textarea id="businessModel" name="businessModel" class="form-control focus-animation" rows="3" placeholder="請簡潔描述您的商業模式..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="businessDeck" class="form-label">上傳企劃書 (PDF, PPT, PPTX)</label>
+                                <input type="file" id="businessDeck" name="businessDeck" class="form-control focus-animation" accept=".pdf,.ppt,.pptx">
+                                <small class="form-help">支援格式：PDF, PowerPoint (PPT, PPTX)</small>
+                            </div>
+                            
+                            <div class="privacy-statement">
+                                <p class="privacy-text">
+                                    <strong>隱私聲明：</strong>我們承諾在未經您同意的情況下，不會將您的企劃書分享給第三方。我們僅會在獲得您的明確授權後，才會向合適的投資者介紹您的項目。
+                                </p>
+                            </div>                        </div>
                         
                         <div class="form-group">
                             <label for="mainCompany" class="form-label">Company/Organization</label>
@@ -475,7 +492,33 @@
                                 <label for="phone" class="form-label">電話號碼 *</label>
                                 <input type="tel" id="phone" name="phone" class="form-control focus-animation" required>
                             </div>
+                            <div class="form-group">
+                                <label for="identity" class="form-label">您的身份 *</label>
+                                <select id="identity" name="identity" class="form-control focus-animation" required>
+                                    <option value="">請選擇您的身份</option>
+                                    <option value="投資者">投資者</option>
+                                    <option value="專業人士(尚未創業)">專業人士(尚未創業)</option>
+                                    <option value="企業管理人">企業管理人</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
                             
+                            <div class="form-group">
+                                <label for="businessModel" class="form-label">一句話描述您的商業模式</label>
+                                <textarea id="businessModel" name="businessModel" class="form-control focus-animation" rows="3" placeholder="請簡潔描述您的商業模式..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="businessDeck" class="form-label">上傳企劃書 (PDF, PPT, PPTX)</label>
+                                <input type="file" id="businessDeck" name="businessDeck" class="form-control focus-animation" accept=".pdf,.ppt,.pptx">
+                                <small class="form-help">支援格式：PDF, PowerPoint (PPT, PPTX)</small>
+                            </div>
+                            
+                            <div class="privacy-statement">
+                                <p class="privacy-text">
+                                    <strong>隱私聲明：</strong>我們承諾在未經您同意的情況下，不會將您的企劃書分享給第三方。我們僅會在獲得您的明確授權後，才會向合適的投資者介紹您的項目。
+                                </p>
+                            </div>                            </div>                            
                             <button type="submit" class="btn btn--primary btn--large btn--full-width pulse-button loading-button">
                                 <span class="btn-text">免費加入獨角獸研究所</span>
                                 <span class="btn-loading hidden">

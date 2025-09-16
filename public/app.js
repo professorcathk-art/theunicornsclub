@@ -624,9 +624,12 @@ async function handleChineseFormSubmission() {
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
+    const identity = formData.get('identity');
+    const businessModel = formData.get('businessModel');
+    const businessDeck = formData.get('businessDeck');
 
     // Basic validation
-    if (!name || !email || !phone) {
+    if (!name || !email || !phone || !identity) {
         showChineseNotification('請填寫所有必填欄位', 'error');
         shakeElement(form);
         return;
@@ -656,14 +659,7 @@ async function handleChineseFormSubmission() {
         // Submit to API
         const response = await fetch('/api/submit-chinese-form', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                phone
-            })
+            body: formData
         });
 
         const result = await response.json();

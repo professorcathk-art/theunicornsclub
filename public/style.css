@@ -2479,6 +2479,62 @@ body {
   border-color: var(--color-error);
 }
 
+/* Textarea specific styling */
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+/* File input specific styling */
+input[type="file"].form-control {
+  padding: var(--space-8);
+  cursor: pointer;
+}
+
+input[type="file"].form-control::-webkit-file-upload-button {
+  background: var(--color-orange-primary);
+  color: white;
+  border: none;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-12);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"].form-control::-webkit-file-upload-button:hover {
+  background: var(--color-orange-dark);
+}
+
+/* Form help text */
+.form-help {
+  display: block;
+  margin-top: var(--space-8);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Privacy statement styling */
+.privacy-statement {
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+}
+
+.privacy-text {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.privacy-text strong {
+  color: var(--color-orange-primary);
+}
+
 /* Success Section */
 .success {
   padding: 100px 0;
