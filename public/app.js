@@ -633,12 +633,9 @@ async function handleChineseFormSubmission() {
     const name = form.querySelector('#name').value.trim();
     const email = form.querySelector('#email').value.trim();
     const phone = form.querySelector('#phone').value.trim();
-    const identity = form.querySelector('#identity').value.trim();
-    const businessModel = form.querySelector('#businessModel').value.trim();
-    const businessDeck = form.querySelector('#businessDeck').files[0];
 
     // Basic validation
-    if (!name || !email || !phone || !identity) {
+    if (!name || !email || !phone) {
         showChineseNotification('請填寫所有必填欄位', 'error');
         shakeElement(form);
         return;
@@ -665,13 +662,11 @@ async function handleChineseFormSubmission() {
     submitButton.style.opacity = '0.7';
 
     try {
-        // Prepare JSON data (skip file upload for now)
+        // Prepare JSON data
         const jsonData = {
             name: name,
             email: email,
-            phone: phone,
-            identity: identity,
-            businessModel: businessModel || null
+            phone: phone
         };
         
         // Submit to API

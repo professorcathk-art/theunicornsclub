@@ -27,13 +27,13 @@ module.exports = async function handler(req, res) {
 
   try {
     // Handle JSON data
-    const { name, email, phone, identity, businessModel, businessDeck } = req.body;
+    const { name, email, phone } = req.body;
 
     // Validate required fields
-    if (!name || !email || !phone || !identity) {
+    if (!name || !email || !phone) {
       return res.status(400).json({ 
         error: 'Missing required fields',
-        required: ['name', 'email', 'phone', 'identity']
+        required: ['name', 'email', 'phone']
       });
     }
 
@@ -54,34 +54,19 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Handle file upload (if provided)
-    let businessDeckFilename = null;
-    let businessDeckPath = null;
-    
-    if (businessDeck && businessDeck.name) {
-      // For now, just store the filename
-      // In production, you'd want to save the file to cloud storage
-      businessDeckFilename = businessDeck.name;
-      businessDeckPath = `uploads/${Date.now()}_${businessDeck.name}`;
-    }
-
     // Insert lead into database
     const query = `
-      INSERT INTO chinese_site_leads (name, email, phone, identity, business_model, business_deck_filename, business_deck_path, source, status)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, 'chinese_site', 'new')
+      INSERT INTO chinese_site_leads (name, email, phone, source, status)
+      VALUES ($1, $2, $3, 'chinese_site', 'new')
       ON CONFLICT (email) 
       DO UPDATE SET 
         name = EXCLUDED.name,
         phone = EXCLUDED.phone,
-        identity = EXCLUDED.identity,
-        business_model = EXCLUDED.business_model,
-        business_deck_filename = EXCLUDED.business_deck_filename,
-        business_deck_path = EXCLUDED.business_deck_path,
         updated_at = CURRENT_TIMESTAMP
       RETURNING id, created_at
     `;
 
-    const values = [name, email, phone, identity, businessModel || null, businessDeckFilename, businessDeckPath];
+    const values = [name, email, phone];
     const result = await pool.query(query, values);
 
     // Log successful submission
