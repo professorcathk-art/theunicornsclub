@@ -1,5 +1,5 @@
 // API endpoint for Chinese site form submission
-import { Pool } from 'pg';
+const { Pool } = require('pg');
 
 // Database connection
 const pool = new Pool({
@@ -9,7 +9,7 @@ const pool = new Pool({
   }
 });
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
