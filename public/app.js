@@ -251,7 +251,7 @@ async function handleMainFormSubmission() {
 
     try {
         // Submit to API
-        const response = await fetch('/.netlify/functions/submit-main-form', {
+        const response = await fetch('/api/submit-main-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -626,7 +626,7 @@ async function handleChineseFormSubmission() {
 
     try {
         // Submit to API
-        const response = await fetch('/.netlify/functions/submit-chinese-form', {
+        const response = await fetch('/api/submit-chinese-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
