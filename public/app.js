@@ -920,10 +920,10 @@ function initializeUpsellButtons() {
             
             if (buttonText.includes('立即訂閱')) {
                 message = '正在跳轉到Skool月度訂閱頁面...';
-                url = 'https://www.skool.com/unicorn-institute';
+                url = 'https://skool.com/second-life-lab-6495';
             } else if (buttonText.includes('年度計劃')) {
                 message = '正在跳轉到年度會員計劃...';
-                url = 'https://www.skool.com/unicorn-institute';
+                url = 'https://skool.com/second-life-lab-6495';
             } else if (buttonText.includes('預約諮詢')) {
                 message = '正在跳轉到職業教練服務預約...';
                 url = 'mailto:contact@unicorn-institute.com?subject=職業教練服務諮詢';
