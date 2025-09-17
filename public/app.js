@@ -633,9 +633,10 @@ async function handleChineseFormSubmission() {
     const name = form.querySelector('#name').value.trim();
     const email = form.querySelector('#email').value.trim();
     const phone = form.querySelector('#phone').value.trim();
+    const role = form.querySelector('#role').value.trim();
 
     // Basic validation
-    if (!name || !email || !phone) {
+    if (!name || !email || !phone || !role) {
         showChineseNotification('請填寫所有必填欄位', 'error');
         shakeElement(form);
         return;
@@ -666,7 +667,8 @@ async function handleChineseFormSubmission() {
         const jsonData = {
             name: name,
             email: email,
-            phone: phone
+            phone: phone,
+            role: role
         };
         
         // Submit to API
@@ -1254,7 +1256,7 @@ function initializeChineseFormValidation() {
     const form = document.getElementById('registrationForm');
     if (!form) return;
 
-    const inputs = form.querySelectorAll('input[required]');
+    const inputs = form.querySelectorAll('input[required], select[required]');
     
     inputs.forEach(input => {
         // Real-time validation
