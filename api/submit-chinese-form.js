@@ -29,11 +29,11 @@ module.exports = async function handler(req, res) {
     // Handle JSON data
     const { name, email, phone, role } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !phone || !role) {
+    // Validate required fields (temporarily make role optional until migration is run)
+    if (!name || !email || !phone) {
       return res.status(400).json({ 
         error: 'Missing required fields',
-        required: ['name', 'email', 'phone', 'role']
+        required: ['name', 'email', 'phone']
       });
     }
 
@@ -54,20 +54,19 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Insert lead into database
+    // Insert lead into database (temporarily without role until migration is run)
     const query = `
-      INSERT INTO chinese_site_leads (name, email, phone, role, source, status)
-      VALUES ($1, $2, $3, $4, 'chinese_site', 'new')
+      INSERT INTO chinese_site_leads (name, email, phone, source, status)
+      VALUES ($1, $2, $3, 'chinese_site', 'new')
       ON CONFLICT (email) 
       DO UPDATE SET 
         name = EXCLUDED.name,
         phone = EXCLUDED.phone,
-        role = EXCLUDED.role,
         updated_at = CURRENT_TIMESTAMP
       RETURNING id, created_at
     `;
 
-    const values = [name, email, phone, role];
+    const values = [name, email, phone];
     const result = await pool.query(query, values);
 
     // Log successful submission
@@ -76,7 +75,7 @@ module.exports = async function handler(req, res) {
       name,
       email,
       phone,
-      role,
+      role: role || 'not_stored_yet',
       created_at: result.rows[0].created_at
     });
 
@@ -89,7 +88,7 @@ module.exports = async function handler(req, res) {
         name,
         email,
         phone,
-        role,
+        role: role || 'not_stored_yet',
         source: 'chinese_site',
         created_at: result.rows[0].created_at
       }

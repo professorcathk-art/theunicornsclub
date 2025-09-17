@@ -651,8 +651,8 @@ async function handleChineseFormSubmission() {
     const phone = form.querySelector('#phone').value.trim();
     const role = form.querySelector('#role').value.trim();
 
-    // Basic validation
-    if (!name || !email || !phone || !role) {
+    // Basic validation (temporarily make role optional until migration is run)
+    if (!name || !email || !phone) {
         showChineseNotification('請填寫所有必填欄位', 'error');
         shakeElement(form);
         return;
