@@ -13,6 +13,11 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="app.js" as="script">
+    <meta name="theme-color" content="#ff6b35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
     <!-- Chinese Site Only -->
@@ -151,6 +156,52 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section - Enhanced Mobile Animations -->
+        <section class="benefits">
+            <div class="benefits-background"></div>
+            <div class="container">
+                <h2 class="section-title fade-in-up">你會得到什麼</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="0">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">🎓</div>
+                        <h3>免費參與會員分享的網絡研討會</h3>
+                        <p>參與會員分享的專業網絡研討會，獲取最新商業洞察</p>
+                    </div>
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="100">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">🤖</div>
+                        <h3>獲取AI和營銷工具學習資料</h3>
+                        <p>獲取AI和營銷工具學習資料，提升業務效率</p>
+                    </div>
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="200">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">📚</div>
+                        <h3>專業書籍和課程推薦</h3>
+                        <p>精選書籍和課程推薦，持續學習成長</p>
+                    </div>
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="300">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">🤝</div>
+                        <h3>知識分享交流會</h3>
+                        <p>參與知識分享交流會，擴展人脈網絡</p>
+                    </div>
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="400">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">💼</div>
+                        <h3>免費主題網絡研討會</h3>
+                        <p>一人公司、副業、創業、企業成長、個人成長、線上銷售漏斗、人生藍圖</p>
+                    </div>
+                    <div class="benefit-card enhanced-mobile scale-in-animation" data-delay="500">
+                        <div class="benefit-glow"></div>
+                        <div class="benefit-icon rotate-animation">🚀</div>
+                        <h3>商業企劃書提交與支援服務</h3>
+                        <p>我們將協助安排路演，對接機構投資者和天使投資人，並投資優秀的商業創意</p>
                     </div>
                 </div>
             </div>
@@ -342,7 +393,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js" async></script>
     <script>
         // Auto-show Chinese page when accessing /chinese
         document.addEventListener('DOMContentLoaded', function() {
