@@ -562,9 +562,16 @@ function initializeChineseSite() {
 }
 
 function initializeChineseRegistrationForm() {
+    console.log('Initializing Chinese registration form...');
     const registrationForm = document.getElementById('registrationForm');
     const landingPage = document.getElementById('landingPage');
     const thankYouPage = document.getElementById('thankYouPage');
+    
+    console.log('Form elements found:', {
+        registrationForm: !!registrationForm,
+        landingPage: !!landingPage,
+        thankYouPage: !!thankYouPage
+    });
 
     // Add main CTA button functionality
     const heroCTA = document.querySelector('.hero-cta .btn');
@@ -586,10 +593,14 @@ function initializeChineseRegistrationForm() {
 
     // Form submission handler
     if (registrationForm) {
+        console.log('Adding form submission handler...');
         registrationForm.addEventListener('submit', function(e) {
+            console.log('Form submitted!');
             e.preventDefault();
             handleChineseFormSubmission();
         });
+    } else {
+        console.error('Registration form not found!');
     }
 
     // Initialize form validation
@@ -624,7 +635,12 @@ function scrollToRegistration() {
 }
 
 async function handleChineseFormSubmission() {
+    console.log('handleChineseFormSubmission called');
     const form = document.getElementById('registrationForm');
+    if (!form) {
+        console.error('Form not found in handleChineseFormSubmission');
+        return;
+    }
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton.querySelector('.btn-text');
     const buttonLoading = submitButton.querySelector('.btn-loading');
