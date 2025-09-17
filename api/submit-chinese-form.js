@@ -97,6 +97,12 @@ module.exports = async function handler(req, res) {
 
   } catch (error) {
     console.error('Database error:', error);
+    console.error('Error details:', {
+      code: error.code,
+      message: error.message,
+      detail: error.detail,
+      hint: error.hint
+    });
     
     // Return appropriate error response
     if (error.code === '23505') { // Unique constraint violation
@@ -106,9 +112,19 @@ module.exports = async function handler(req, res) {
       });
     }
 
+    // Check if it's a column doesn't exist error
+    if (error.code === '42703') { // Undefined column
+      return res.status(500).json({
+        error: 'Database schema error',
+        message: 'Database migration required. Please contact administrator.',
+        details: error.message
+      });
+    }
+
     return res.status(500).json({
       error: 'Internal server error',
-      message: 'Failed to submit lead. Please try again.'
+      message: 'Failed to submit lead. Please try again.',
+      details: error.message
     });
   }
 }

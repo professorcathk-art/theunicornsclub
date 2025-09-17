@@ -707,6 +707,7 @@ async function handleChineseFormSubmission() {
                 navigateToThankYouPage();
             }, 1000);
         } else {
+            console.error('API Error:', result);
             showChineseNotification(result.message || '註冊失敗，請重試', 'error');
         }
     } catch (error) {
