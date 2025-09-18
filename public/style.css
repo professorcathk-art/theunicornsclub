@@ -826,7 +826,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
+  padding: 32px 0 24px 0;
 }
 
 .logo h1 {
