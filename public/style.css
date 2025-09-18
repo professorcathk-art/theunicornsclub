@@ -1868,7 +1868,7 @@ body {
 /* Hero Section */
 .hero {
   background: var(--gradient-orange);
-  padding: 100px 0;
+  padding: 120px 0 100px 0;
   color: var(--color-white);
   text-align: center;
   position: relative;
@@ -3030,7 +3030,10 @@ html {
   }
   
   /* Chinese site mobile adjustments */
-  .hero,
+  .hero {
+    padding: 100px 0 60px 0;
+  }
+  
   .who-should-join,
   .testimonials,
   .benefits,
